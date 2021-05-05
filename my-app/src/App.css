@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,130 @@
 
 .App-link {
   color: #61dafb;
+}
+.card{
+  position: relative;
+  width: 70%;
+  height: 70%;
+  margin:auto;
+  margin-bottom: 10px;
+  margin-top: 1%;
+  background:linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+  background-size: cover;
+  box-shadow: 5px 10px 5px 10px #fff;
+  padding: 20px;
+}
+
+.title{
+  color: #fff;
+  font-weight: 800;
+  font-size: 30px;
+
+}
+.fab{
+  width: 50px;
+  height: 50px;
+}
+.search-form{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form input{
+  width: 90%;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #0000;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.search-form button{
+  width: 8%;
+  height: 50px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px !important;
+  background: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+.search-form button:hover{
+  background: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+  color: #0000;
+}
+
+.main-container{
+width: 100%;
+height: auto;
+color: #fff;
+text-align: center;
+margin-top: 30px;
+}
+.main-container h4{
+  font-size: 25px;
+  font-weight: 800;
+}
+.weather-icon i{
+  font-size: 30px;
+  font-weight: 800; 
+}
+
+.temperature h1{
+  font-size: 30px;
+  font-weight: 900;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .search-form input{
+    width: 70%;
+  }
+  .search-form button{
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-form input{
+    width: 70%;
+  }
+  .search-form button{
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .search-form input{
+    width: 80%;
+  }
+  .search-form button{
+    width: 18%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .search-form input{
+    width: 80%;
+  }
+  .search-form button{
+    width: 18%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .search-form input{
+    width: 90%;
+  }
+  .search-form button{
+    width: 8%;
+  }
 }
 
 @keyframes App-logo-spin {
