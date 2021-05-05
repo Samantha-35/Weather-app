@@ -26,10 +26,11 @@ useEffect(() => {
     getData();
 },[]);
 
+// what is displayed in the server
 return (
     <div className="App">
       <div className="card">
-        <h2 className ="title"><i class="fab fa-cloudversify"></i>Forecast</h2>
+        <h2 className ="title"><i className="fab fa-cloudversify"></i>Forecast</h2>
         <div className="search-form">
           <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="enter your city name"/>
           <button type="button" onClick={() => getData()}>Search</button>
