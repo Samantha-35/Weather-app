@@ -5,8 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
-const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?';
+const baseUrl = 'https://pro.openweathermap.org/data/2.5/weather?';
+const foreCastUrl= 'https://pro.openweathermap.org/data/2.5/forecast/daily?';
 const apiKey = '9c8b4d791758b9ad70bf345c4df2e51a';
+
 // const nextDays = 'https://api.openweathermap.org/data/2.5/forecast/daily?';
 // api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9c8b4d791758b9ad70bf345c4df2e51a
 
