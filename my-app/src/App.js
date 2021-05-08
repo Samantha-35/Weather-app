@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import {getIndex} from './index';
 import  React, { useState,useEffect } from 'react';
+import axios from 'axios';
+
 
 
 //creating my flags:
@@ -9,13 +11,36 @@ function App() {
   const [index, setIndex] = useState(null);
   const [city, setCity] = useState('Kigali');
   const [laoding, setLaoding] = useState(false);
+  const baseUrl = 'https://pro.openweathermap.org/data/2.5/weather?';
+  const foreCastUrl= 'https://pro.openweathermap.org/data/2.5/forecast/daily?';
+  const apiKey = '9c8b4d791758b9ad70bf345c4df2e51a';
+  const [newDatas, setNewDatas]= useState(null);
+  
+  // const nextDays = 'https://api.openweathermap.org/data/2.5/forecast/daily?';
+  // api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9c8b4d791758b9ad70bf345c4df2e51a
+  
+  const getIndex = async(cityname) => {
+    try{
+      const {data} = await axios.get(baseUrl + `q=${cityname}&appid=${apiKey}`)
+      // const {days} = await axios.get(nextDays + `q=${cityname}&appid=${apiKey}`)
+      console.log(data);
+      setNewDatas(data);
+      console.log(newDatas);
+    }catch(error){
+      throw error;
+    }
+  }
+
+
 
 //creating my function try-catch : 
 const getData = async () => {
   try {
     const data = await getIndex(city);
-    setIndex(data);
+    // setNewDatas(data);
     console.log (data);
+    // console.log(index);
+    // console.log(index.name);
   } catch (error) {
    console.log(error.message);
   }
@@ -45,7 +70,7 @@ return (
           <h1>25&deg;C</h1>
         </div>
         <div className="location">
-          <h3><i className="fa fa-street-view"></i>Kigali | Rwanda</h3>
+          <h3><i className="fa fa-street-view"></i></h3>
         </div>
       </div>
       </div>
