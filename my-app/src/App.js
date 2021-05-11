@@ -70,7 +70,7 @@ return (
           <h1>25&deg;C</h1>
         </div>
         <div className="location">
-          <h3><i className="fa fa-street-view"></i></h3>
+          <h3><i className="fa fa-street-view"> Lagos|Nigeria</i></h3>
         </div>
       </div>
       </div>
