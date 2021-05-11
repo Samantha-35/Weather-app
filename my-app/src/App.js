@@ -14,6 +14,7 @@ function App() {
   const [laoding, setLaoding] = useState(false);
   const baseUrl = 'https://pro.openweathermap.org/data/2.5/weather?';
   const foreCastUrl= 'https://pro.openweathermap.org/data/2.5/forecast/daily?';
+  console.log(foreCastUrl);
   const apiKey = '9c8b4d791758b9ad70bf345c4df2e51a';
   const [newDatas, setNewDatas]= useState(null);
 
@@ -24,10 +25,14 @@ function App() {
   
   const getIndex = async(cityname) => {
     try{
-      const {data} = await axios.get(baseUrl + `q=${cityname}&appid=${apiKey}`)
+      const kigali = await axios.get(foreCastUrl + `q=${cityname}&cnt=5&appid=${apiKey}`)
+      // mettre des crochets c' est une syntaxe déroutante
       // const {days} = await axios.get(nextDays + `q=${cityname}&appid=${apiKey}`)
-      console.log(data);
-      setNewDatas(data);
+      console.log(kigali.data);
+      // "data" est propre à Axios, dans la mesure où on utilise Axios, c'est le nom de la propriété data qui fera office d'objet. 
+      // le console log sert à débeuguer, on est obligé de savoir ce qu'on va recevoir pour pouvoir les utiliser les datas
+      setNewDatas(kigali.data);
+      // avec Axios c'est toujours .data
       console.log(newDatas);
     }catch(error){
       throw error;
@@ -68,14 +73,15 @@ return (
         <div className="weather-icon">
           <i className="fa fa-sun"></i>
         </div>
-        <h3>{newDatas.weather[0].main}</h3>
+        <h3>{newDatas && newDatas.list[0].weather[0].main}</h3>
         {/* lorsque j'utilise un state dans mon htlm il faut absolument des accolades */}
+        {/* && équivaut à if */}
         <div className="temperature">
           <h1>25&deg;C</h1>
         </div>
         <div className="location">
-          <h3><i className="fa fa-street-view">{newDatas && newDatas.name}|{newDatas && newDatas.sys.country}</i></h3>
-           {/* pour que le changement des villes et pays se fasse il faut un UseState */}
+          <h3><i className="fa fa-street-view">{newDatas && newDatas.city.name}|{newDatas && newDatas.city.country}</i></h3>
+           {/* pour que le changement des villes et pays se fasse il faut un UseState. Le && est synonyme de "if" */}
         </div>
       </div>
       </div>
