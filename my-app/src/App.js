@@ -9,12 +9,15 @@ import axios from 'axios';
 //creating my flags:
 function App() {
   const [index, setIndex] = useState(null);
+  // valeur initiale entre ()
   const [city, setCity] = useState('Kigali');
   const [laoding, setLaoding] = useState(false);
   const baseUrl = 'https://pro.openweathermap.org/data/2.5/weather?';
   const foreCastUrl= 'https://pro.openweathermap.org/data/2.5/forecast/daily?';
   const apiKey = '9c8b4d791758b9ad70bf345c4df2e51a';
   const [newDatas, setNewDatas]= useState(null);
+
+  // les states dans react servent à afficher des valeurs dans mon html
   
   // const nextDays = 'https://api.openweathermap.org/data/2.5/forecast/daily?';
   // api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9c8b4d791758b9ad70bf345c4df2e51a
@@ -65,12 +68,14 @@ return (
         <div className="weather-icon">
           <i className="fa fa-sun"></i>
         </div>
-        <h3>Sunny</h3>
+        <h3>{newDatas.weather[0].main}</h3>
+        {/* lorsque j'utilise un state dans mon htlm il faut absolument des accolades */}
         <div className="temperature">
           <h1>25&deg;C</h1>
         </div>
         <div className="location">
-          <h3><i className="fa fa-street-view"> Lagos|Nigeria</i></h3>
+          <h3><i className="fa fa-street-view">{newDatas && newDatas.name}|{newDatas && newDatas.sys.country}</i></h3>
+           {/* pour que le changement des villes et pays se fasse il faut un UseState */}
         </div>
       </div>
       </div>
